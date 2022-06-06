@@ -17,12 +17,18 @@ public class Uso_Empleado {
 		System.out.println("Nombre: " + empleado1.getNombre() + " Sueldo: " + 
 		empleado1.getSueldo() + " Fecha alta: " + empleado1.getContrato());
 		*/
+
+		Jefatura jefeRRHH = new Jefatura("Pedro", 2000, 2002, 9, 12);
 		
-		Empleado[] misEmpleados = new Empleado[3];
+		jefeRRHH.setIncentivo(700);
+		
+		Empleado[] misEmpleados = new Empleado[5];
 		
 		misEmpleados[0] = new Empleado("CobosCode", 1200, 2020, 9, 16);
 		misEmpleados[1] = new Empleado("Pepe", 1300, 2019, 9, 16);
 		misEmpleados[2] = new Empleado("Luis", 1000, 2015, 9, 20);
+		misEmpleados[3] = jefeRRHH; ; //Polimorfismo. Principio de sustitución.
+		misEmpleados[4] = new Jefatura("Marta", 3000, 2005, 10, 25);
 		
 		/*
 		for(int i=0 ; i<misEmpleados.length ; i++) {
@@ -102,7 +108,7 @@ class Jefatura extends Empleado{
 	public void setIncentivo(double inc) {
 		incentivo = inc;
 	}
-	public double getSueldo() {
+	public double getSueldo() { // El triangulo significa que lo soobreescribe
 		double sueldoJefe = super.getSueldo(); // llamo a la clase padre de getSueldo.
 		
 		return sueldoJefe + incentivo;
