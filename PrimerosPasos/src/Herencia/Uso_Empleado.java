@@ -30,6 +30,9 @@ public class Uso_Empleado {
 		misEmpleados[3] = jefeRRHH; ; //Polimorfismo. Principio de sustitución.
 		misEmpleados[4] = new Jefatura("Marta", 3000, 2005, 10, 25);
 		
+		Jefatura jefaFinanzas = (Jefatura) misEmpleados[4]; //Casting o refundición.
+		jefaFinanzas.setIncentivo(3000); 
+		
 		/*
 		for(int i=0 ; i<misEmpleados.length ; i++) {
 			misEmpleados[i].subeSueldo(5);
@@ -97,7 +100,7 @@ class Empleado {
 	
 }
 
-class Jefatura extends Empleado{
+/*final*/ class Jefatura extends Empleado{ // final es para que nadie pueda crear una clase que herede de esta.
 	
 	public Jefatura(String nombre, double sueldo, int anio, int mes, int dia) {
 		
@@ -119,3 +122,15 @@ class Jefatura extends Empleado{
 	
 	
 }
+
+/*
+class director extends Jefatura {
+	
+	public director(String nombre, double sueldo, int anio, int mes, int dia) {
+		
+		super(nombre, sueldo, anio, mes, dia);
+		
+	}
+	
+}
+*/
